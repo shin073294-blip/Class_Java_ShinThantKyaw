@@ -105,13 +105,25 @@ public class atm {
         sender.history.add(new transaction(txId, new Date(), "To " + recipient.name, amt, sender.balance));
         recipient.history.add(new transaction(txId, new Date(), "From " + sender.name, amt, recipient.balance));
 
-        sender.balance -= amt;
-        recipient.balance += amt;
+        sender.balance -= amt; // sender.balance = sender.balance - amt
+        recipient.balance += amt;// ||
     }
 
     private static void printStatement(accounts user) {
         for (transaction tx : user.history) {
-            System.out.printf("%-15s | $%-6.2f | Bal: $%-6.2f\n", tx.transactionType, tx.amount, tx.previousBalance);
+            String typeStr = tx.transactionType;
+            while (typeStr.length() < 15) {
+                typeStr += " "; // Manually add spaces until it's exactly 15 characters long
+            }
+
+            String amtStr = String.format("$%.2f", tx.amount);
+            while (amtStr.length() < 7) {
+                amtStr += " ";
+            }
+
+            String balStr = String.format("$%.2f", tx.previousBalance);
+
+            System.out.println(typeStr + " | " + amtStr + " | Bal: " + balStr);
         }
     }
 
