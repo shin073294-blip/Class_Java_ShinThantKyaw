@@ -20,7 +20,6 @@ public class guest {
 
             System.out.println("Type a name to search, or 'remove Name' to delete:");
             String input = scanner.nextLine(); // Get the whole line
-
             if (input.startsWith("remove")) {
 
                 String nameToRemove = input.replace("remove ", "");
@@ -34,7 +33,6 @@ public class guest {
 
             else if (guests.contains(input)) {
                 System.out.println("Result: " + input + " was found!");
-
             }
 
             else {

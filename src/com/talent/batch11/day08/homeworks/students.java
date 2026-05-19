@@ -1,9 +1,6 @@
 package com.talent.batch11.day08.homeworks;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class students {
 
